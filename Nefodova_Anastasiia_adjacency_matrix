@@ -18,6 +18,16 @@ def getting_edges():
 
 
 def size_of_matrix(lst):
+    """
+    (list) -> (int)
+
+    Returning maximal number from list of lists.
+
+    >>>size_of_matrix([[1, 2], [3, 9], [5, 7]])
+    9
+    >>>size_of_matrix([[14, 2], [3, 8], [5, 7]])
+    14
+    """
     edges_list_new = []
     for number in lst:
         for i in number:
@@ -27,6 +37,16 @@ def size_of_matrix(lst):
 
 
 def building_matrix(size):
+    """
+    (int) -> (list)
+    Creating list of list by given maximal number.
+
+    >>>building_matrix(3)
+    [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+    >>>building_matrix(2)
+    [[0, 0], [0, 0]]
+
+    """
     matrix = []
     while len(matrix) < int(size):
         row = []
@@ -37,6 +57,15 @@ def building_matrix(size):
 
 
 def replacing(edges_lists, matrix):
+    """
+    (list, list) -> (list)
+    Replacing 0 in matrix by 1 according to the  edges of the graph.
+
+    >>>replacing([[1, 2], [3, 4]], [[0, 0, 0, 0], [0, 0, 0, 0],
+                 [0, 0, 0, 0], [0, 0, 0, 0]])
+    [[0, 1, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]]
+
+    """
     for edge in edges_lists:
         matrix[edge[0]-1][edge[1]-1] = 1
         matrix[edge[1]-1][edge[0]-1] = 1
